@@ -9,7 +9,7 @@
             list.Add("bbc");
             list.Add("nk");
             list.Add("abc");
-            list.Insert(1, "ab");
+            list.Insert(10, "ab");
             System.Collections.Generic.List<int> list2 = new System.Collections.Generic.List<int>();
             list2.Add(1);
             list2.IndexOf(1);

@@ -60,6 +60,14 @@
 
                     this.list[index] = item;
                 }
+                else
+                {
+                    System.Console.WriteLine("Элемент по заданому индексу находится вне диапозона списка.");
+                }
+            }
+            else
+            {
+                System.Console.WriteLine("Спсиок не инициализирован!");
             }
         }
     }
