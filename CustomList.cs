@@ -47,7 +47,6 @@
                     {
                         if (i == index)
                         {
-                            int lastElement = this.list.Length - 1;
                             for (int j = this.list.Length - 1; j >= i; j--)
                             {
                                 this.list[j] = this.list[j - 1];
@@ -68,6 +67,35 @@
             else
             {
                 System.Console.WriteLine("Спсиок не инициализирован!");
+            }
+        }
+
+        public void RemoveAt(int index)
+        {
+            if (this.list != null)
+            {
+                if (index < this.list.Length)
+                {
+                    this.count--;
+                    T[] temp = new T[this.count];
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        if (i >= index)
+                        {
+                            temp[i] = this.list[i + 1];
+                        }
+                        else
+                        {
+                            temp[i] = this.list[i];
+                        }
+                    }
+
+                    this.list = temp;
+                }
+                else
+                {
+                    System.Console.WriteLine("Элемент по заданому индексу находится вне диапозона списка.");
+                }
             }
         }
     }
