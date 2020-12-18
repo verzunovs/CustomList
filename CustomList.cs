@@ -29,6 +29,26 @@
             this.list = temp;
         }
 
+        public int IndexOf(T item)
+        {
+            if (this.list != null)
+            {
+                for (int i = 0; i < this.list.Length; i++)
+                {
+                    if (Equals(item, this.list[i]))
+                    {
+                        return i;
+                    }
+                }
+
+                return -1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
         public void Insert(int index, T item)
         {
             if (this.list != null)
@@ -49,7 +69,14 @@
                         {
                             for (int j = this.list.Length - 1; j >= i; j--)
                             {
-                                this.list[j] = this.list[j - 1];
+                                if (j == 0)
+                                {
+                                    this.list[0] = this.list[j];
+                                }
+                                else
+                                {
+                                    this.list[j] = this.list[j - 1];
+                                }
                             }
 
                             this.list[i] = item;
