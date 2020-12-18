@@ -29,22 +29,37 @@
             this.list = temp;
         }
 
-        private void ExpandList()
+        public void Insert(int index, T item)
         {
-            if (this.IsFull())
+            if (this.list != null)
             {
-            }
-        }
+                if (index < this.list.Length)
+                {
+                    this.count++;
+                    T[] temp = new T[this.count];
+                    for (var i = 0; i < this.list.Length; i++)
+                    {
+                        temp[i] = this.list[i];
+                    }
 
-        private bool IsFull()
-        {
-            if (this.list[this.list.Length - 1] != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                    this.list = temp;
+                    for (int i = 0; i < this.list.Length; i++)
+                    {
+                        if (i == index)
+                        {
+                            int lastElement = this.list.Length - 1;
+                            for (int j = this.list.Length - 1; j >= i; j--)
+                            {
+                                this.list[j] = this.list[j - 1];
+                            }
+
+                            this.list[i] = item;
+                            break;
+                        }
+                    }
+
+                    this.list[index] = item;
+                }
             }
         }
     }
