@@ -10,7 +10,13 @@
             list.Add("nk");
             list.Add("abc");
             list.Insert(2, "ab");
-            list.RemoveAt(1);
+
+            // list.RemoveAt(1);
+            if (list.Remove("d"))
+            {
+                System.Console.WriteLine("Ok");
+            }
+
             System.Collections.Generic.List<int> list2 = new System.Collections.Generic.List<int>();
             list2.Add(1);
             list2.IndexOf(1);

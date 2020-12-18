@@ -70,6 +70,45 @@
             }
         }
 
+        public bool Remove(T item)
+        {
+            if (this.list != null)
+            {
+                this.count--;
+                T[] temp = new T[this.count];
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (Equals(item, this.list[i]))
+                    {
+                        if (Equals(item, this.list[i]))
+                        {
+                            for (int j = i; j < temp.Length; j++)
+                            {
+                                temp[j] = this.list[j + 1];
+                            }
+
+                            return true;
+                        }
+                        else
+                        {
+                            temp[i] = this.list[i];
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                this.list = temp;
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void RemoveAt(int index)
         {
             if (this.list != null)
